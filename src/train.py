@@ -2,12 +2,18 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
-
 import torchvision 
 import torchvision.transforms as transforms
-
 from torch.utils.tensorboard import SummaryWriter
 from itertools import product
+
+
+parameters = dict(
+    batch_sizes = [100, 500, 1000]
+    ,learning_rates = [0.001]
+    ,num_workers = [0, 1]
+)
+param_values = [v for v in parameters.values()]
 
 
 for batch_size, lr, num_workers in product(*param_values):
@@ -23,7 +29,6 @@ for batch_size, lr, num_workers in product(*param_values):
     )
     optimizer = optim.Adam(network.parameters(), lr=lr) 
 
-    
     for epoch in range(30):
         total_loss = 0
         total_correct = 0
