@@ -1,0 +1,38 @@
+for batch_size, lr, num_workers in product(*param_values):
+    comment = f' batch_size = {batch_size} num_workers = {num_workers}'
+    tb = SummaryWriter(comment = comment) 
+    
+    network = Network()
+    train_loader = torch.utils.data.DataLoader(
+        train_set
+        ,batch_size=batch_size
+        ,num_workers=num_workers
+        ,shuffle=True
+    )
+    optimizer = optim.Adam(network.parameters(), lr=lr) 
+
+    
+    for epoch in range(30):
+        total_loss = 0
+        total_correct = 0
+        for batch in train_loader:
+            images = batch[0]
+            labels = batch[1]
+                
+            preds = network(images)
+            loss = F.cross_entropy(preds, labels)
+            
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step() 
+        
+            total_loss += loss.item() * batch_size
+            total_correct += preds.argmax(dim=1).eq(labels).sum().item()
+    
+        tb.add_scalar('Loss', total_loss, epoch)
+        tb.add_scalar('Number Correct', total_correct, epoch)
+        tb.add_scalar('Accuracy', total_correct / len(train_set), epoch)
+        
+        print("epoch: ", epoch, "total_correct: ", total_correct, "loss: ", total_loss)
+
+tb.close()
