@@ -1,3 +1,15 @@
+import torch     
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.optim as optim
+
+import torchvision 
+import torchvision.transforms as transforms
+
+from torch.utils.tensorboard import SummaryWriter
+from itertools import product
+
+
 for batch_size, lr, num_workers in product(*param_values):
     comment = f' batch_size = {batch_size} num_workers = {num_workers}'
     tb = SummaryWriter(comment = comment) 
