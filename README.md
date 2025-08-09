@@ -16,9 +16,14 @@ Manually downloading the dataset is not needed, as it is automatically downloade
 
 # Project Structure 
 src/
+
   data.py   # dataset loading
+  
   model.py  # CNN architecture
+  
   train.py  # training loop and logging
+  
 requirements.txt
+
 README.md
 
