@@ -47,4 +47,4 @@ for batch_size, lr, num_workers in product(*param_values):
         
         print("epoch: ", epoch, "total_correct: ", total_correct, "loss: ", total_loss)
 
-tb.close()
+    tb.close()
