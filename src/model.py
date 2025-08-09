@@ -17,9 +17,6 @@ class Network(nn.Module):
         self.out = nn.Linear(in_features=128, out_features=10)
 
     def forward(self, t):
-        #input layer
-        t = t
-        
         #first conv layer
         t = self.conv1(t)
         t = F.relu(t)
