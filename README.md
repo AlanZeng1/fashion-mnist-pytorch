@@ -4,7 +4,7 @@ Implemented a convolutional neural network using PyTorch to classify different i
 Achieved **98%** test accuracy through architecture adjustments and hyperparameter tuning.
 
 
-# Requirements
+## Requirements
 Install all dependencies with: **pip install -r requirements.txt**
 
 
