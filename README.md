@@ -8,13 +8,13 @@ Achieved **98%** test accuracy through architecture adjustments and hyperparamet
 Install all dependencies with: **pip install -r requirements.txt**
 
 
-# Dataset
+## Dataset
 This project uses the [Fashion-MNIST dataset](https://github.com/zalandoresearch/fashion-mnist), which is a 10 category collection of 70,000 grayscale clothing images (28x28 pixels).
 
 Manually downloading the dataset is not needed, as it is automatically downloaded by torchvision.datasets.FashionMNIST when src/data.py is run for the first time. 
 
 
-# Project Structure 
+## Project Structure 
 src/
 
     data.py   # dataset loading
