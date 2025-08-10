@@ -7,8 +7,9 @@ Achieved **98%** test accuracy through architecture adjustments and hyperparamet
 
 ## Requirements
 Install all dependencies with: 
-        pip install -r requirements.txt
-
+```bash  
+pip install -r requirements.txt
+```
 
 ## Dataset
 This project uses the [Fashion-MNIST dataset](https://github.com/zalandoresearch/fashion-mnist), which is a 10 category collection of 70,000 grayscale clothing images (28x28 pixels).
