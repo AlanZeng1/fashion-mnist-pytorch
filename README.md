@@ -2,7 +2,7 @@
 
 Implemented a convolutional neural network using PyTorch to classify different images from the Fashion-MNIST dataset. 
 
-Achieved **98%** test accuracy through architecture adjustments and hyperparameter tuning.
+Achieved **___%** test accuracy through architecture adjustments and hyperparameter tuning.
 
 
 ## Requirements
