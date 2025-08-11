@@ -30,6 +30,5 @@ class Network(nn.Module):
         t = F.relu(t)
         
         t = self.out(t)
-        #t = F.softmax(t, dim=1)
         
         return t
