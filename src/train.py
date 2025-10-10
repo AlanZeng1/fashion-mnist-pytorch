@@ -13,13 +13,11 @@ parameters = dict(
     ,learning_rates = [0.001]
     ,num_workers = [0] 
 )
-param_values = [v for v in parameters.values()]
+param_values = [p for p in parameters.values()]
 
 
 for batch_size, lr, num_workers in product(*param_values):
-    comment = f' batch_size = {batch_size} num_workers = {num_workers}'
-    tb = SummaryWriter(comment = comment) 
-    
+    tb = SummaryWriter() 
     network = Network()
     train_loader = torch.utils.data.DataLoader(
         train_set
@@ -36,18 +34,18 @@ for batch_size, lr, num_workers in product(*param_values):
             images = batch[0]
             labels = batch[1]
                 
-            preds = network(images)
-            loss = F.cross_entropy(preds, labels)
+            predictions = network(images)
+            loss = F.cross_entropy(predictions, labels)
             
             optimizer.zero_grad()
             loss.backward()
             optimizer.step() 
         
             total_loss += loss.item() * batch_size
-            total_correct += preds.argmax(dim=1).eq(labels).sum().item()
+            total_correct += predictions.argmax(dim=1).eq(labels).sum().item()
     
         tb.add_scalar('Loss', total_loss, epoch)
-        tb.add_scalar('Number Correct', total_correct, epoch)
+        tb.add_scalar('Correct Amount', total_correct, epoch)
         tb.add_scalar('Accuracy', total_correct / len(train_set), epoch)
 
     tb.close()
