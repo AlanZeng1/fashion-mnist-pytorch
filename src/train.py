@@ -49,7 +49,5 @@ for batch_size, lr, num_workers in product(*param_values):
         tb.add_scalar('Loss', total_loss, epoch)
         tb.add_scalar('Number Correct', total_correct, epoch)
         tb.add_scalar('Accuracy', total_correct / len(train_set), epoch)
-        
-        print("epoch: ", epoch, "total_correct: ", total_correct, "loss: ", total_loss)
 
     tb.close()
