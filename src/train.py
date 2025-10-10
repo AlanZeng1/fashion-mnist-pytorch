@@ -9,9 +9,9 @@ from itertools import product
 
 
 parameters = dict(
-    batch_sizes = [100, 500, 1000]
+    batch_sizes = [1000]
     ,learning_rates = [0.001]
-    ,num_workers = [0, 1]
+    ,num_workers = [1]
 )
 param_values = [v for v in parameters.values()]
 
